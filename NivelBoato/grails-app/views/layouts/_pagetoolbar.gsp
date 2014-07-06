@@ -6,8 +6,8 @@
         <div class="page-toolbar">
 
             <div class="page-toolbar-block">
-                <div class="page-toolbar-title">Title</div>
-                <div class="page-toolbar-subtitle">Subtitle</div>
+                <div class="page-toolbar-title">${toollbarInstance?.titulo}</div>
+                <div class="page-toolbar-subtitle">${toollbarInstance?.subtitulo}</div>
             </div>                        
 
             <ul class="breadcrumb">
