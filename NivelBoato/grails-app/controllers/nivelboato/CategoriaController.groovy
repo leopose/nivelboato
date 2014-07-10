@@ -1,41 +1,21 @@
 package nivelboato
 
-import niveBoato.Entidade.Categoria
-import nivelBoato.ToolBar
-
+import Entidade.Categoria
+import Entidade.ToolBar
 
 class CategoriaController {
 
-    def index = {
-        def toolAtual = toolBar("Lista")
-        render (view:"index", model:[toollbarInstance: toolAtual, categoriaList: Categoria.list()])
+    def index() {
+        Long cat = 9;
+        def toolAtual = toolBar()
+        render (view:"index", model:[totalInstance: cat, toollbarInstance: toolAtual])
     }
     
     
-    private def toolBar(def tipo) {
+    private def toolBar() {
         ToolBar titulos = new ToolBar()
         titulos.titulo = "Categoria"
-
-        if(tipo=="Cadastro") {
-            titulos.subtitulo = "Cadastro de Categoria"
-        }
-        if(tipo=="Lista") {
-            titulos.subtitulo = "Lista de Categorias"
-        }
-        
+        titulos.subtitulo = "Cadastro de Categoria"
         return titulos
-    }
-    
-    def create = {
-        def categoriaInstance = new Categoria()
-        categoriaInstance.properties = params
-        def toolAtual = toolBar("Cadastro")
-        return [categoriaInstance: categoriaInstance,toollbarInstance: toolAtual]
-    }
-    
-    def save = {
-        def categoria = new Categoria(params) 
-        categoria.save()
-        redirect(action: "index")
     }
 }
