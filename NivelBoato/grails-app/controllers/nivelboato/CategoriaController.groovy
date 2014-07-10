@@ -8,7 +8,7 @@ class CategoriaController {
 
     def index = {
         def toolAtual = toolBar("Lista")
-        render (view:"index", model:[toollbarInstance: toolAtual, categoriaList: Categoria.list()])
+        render (view:"index", model:[toollbarInstance: toolAtual, categoriaList: Categoria.findAll()])
     }
     
     
@@ -27,15 +27,20 @@ class CategoriaController {
     }
     
     def create = {
-        def categoriaInstance = new Categoria()
-        categoriaInstance.properties = params
+        def categoriaInstance = new Categoria(params)
         def toolAtual = toolBar("Cadastro")
         return [categoriaInstance: categoriaInstance,toollbarInstance: toolAtual]
     }
     
-    def save = {
-        def categoria = new Categoria(params) 
-        categoria.save()
+    def save() {
+        def categoria = new Categoria(params)
+        categoria.dataCadastro =  new Date()
+        categoria.status = true
+        categoria.descricao = "teste"
+        System.out.println("antes de salvar" +categoria.descricao +" " +categoria.id)
+        categoria.save(flush: true)
+        System.out.println("depois de salvar")
+        
         redirect(action: "index")
     }
 }

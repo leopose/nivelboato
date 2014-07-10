@@ -8,10 +8,14 @@ package niveBoato.Entidade
  */
 class Categoria {
     
-     Long id;
+    // Long id;
      String descricao;
      Date dataCadastro;
      Usuario usuarioCadastro;
      boolean status;
+
+    static mapping = {
+        version false
+    }
 }
 
