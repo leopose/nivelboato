@@ -64,11 +64,10 @@
 
                   <ul class="navigation">
                     <li class="active"><g:link resource="index"><i class="fa fa-dashboard"></i>Página Inicial</g:link></li>
-                    <li><a href="#"><i class="fa fa-desktop"></i> Categorias</a>
+                        <li><a href="#"><i class="fa fa-bookmark"></i> Categorias</a>
                         <ul>
-                            <li><g:link controller="categoria" action="index">Cadastrar</g:link></li>
-                            <li><a href="#">Hidden Navigation</a></li>
-                            <li><a href="blank.html">Blank</a></li>
+                                <li><g:link controller="categoria" action="create">Cadastrar</g:link></li>
+                                <li><g:link controller="categoria" action="index">Listar</g:link></li>
                         </ul>
                     </li>                    
                     <li><a href="#"><i class="fa fa-pencil"></i> Form Stuff</a>
@@ -146,9 +145,7 @@
     
 
   <!-- Your content -->
-            <div class="page-content">
                 <g:layoutBody/>
-            </div>
             <div class="page-sidebar">
 
             </div>
