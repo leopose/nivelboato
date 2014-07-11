@@ -1,6 +1,6 @@
 
 
-package niveBoato.Entidade
+package entidade
 
 /**
  *

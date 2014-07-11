@@ -1,10 +1,12 @@
-package entidade
+package controles
 
 
 
 import static org.springframework.http.HttpStatus.*
+import entidade.Tag
 import grails.transaction.Transactional
-import Entidade.ToolBar
+import utilitario.ToolBar
+
 
 @Transactional(readOnly = true)
 class TagController {

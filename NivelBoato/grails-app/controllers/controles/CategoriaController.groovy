@@ -1,7 +1,10 @@
-package nivelboato
+package controles
 
-import niveBoato.Entidade.Categoria
-import nivelBoato.ToolBar
+
+
+import entidade.Categoria
+import utilitario.ToolBar
+
 
 
 class CategoriaController {
