@@ -64,12 +64,18 @@
 
                   <ul class="navigation">
                     <li class="active"><g:link resource="index"><i class="fa fa-dashboard"></i>Página Inicial</g:link></li>
-                        <li><a href="#"><i class="fa fa-bookmark"></i> Categorias</a>
+                    <li><a href="#"><i class="fa fa-bookmark"></i> Categorias</a>
                         <ul>
                                 <li><g:link controller="categoria" action="create">Cadastrar</g:link></li>
                                 <li><g:link controller="categoria" action="index">Listar</g:link></li>
                         </ul>
-                    </li>                    
+                    </li>    
+                    <li><a href="#"><i class="fa fa-bookmark"></i> TAGs</a>
+                        <ul>
+                                <li><g:link controller="tag" action="create">Cadastrar</g:link></li>
+                                <li><g:link controller="tag" action="index">Listar</g:link></li>
+                        </ul>
+                    </li>                 
                     <li><a href="#"><i class="fa fa-pencil"></i> Form Stuff</a>
                         <ul>
                             <li><a href="form-elements.html">Elements</a></li>

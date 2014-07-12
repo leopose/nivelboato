@@ -1,9 +1,12 @@
 dataSource {
     pooled = true
     jmxExport = true
-    driverClassName = "com.mysql.jdbc.Driver"
-    username = "root"
-    password = "admin"
+    //driverClassName = "com.mysql.jdbc.Driver"
+    //username = "root"
+    //password = "admin"
+    driverClassName = "org.h2.Driver"
+    username = "sa"
+    password = ""
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -20,7 +23,8 @@ environments {
             pooled = true
             loggingSql = true
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost:3306/nivelBoato"
+            //url = "jdbc:mysql://localhost:3306/nivelBoato"
+            url = "jdbc:h2:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }
     test {

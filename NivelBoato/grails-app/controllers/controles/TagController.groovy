@@ -1,22 +1,16 @@
 package controles
-
-
-
-import static org.springframework.http.HttpStatus.*
 import entidade.Tag
-import grails.transaction.Transactional
 import utilitario.ToolBar
 
-
-@Transactional(readOnly = true)
 class TagController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
     def toolAtual = toolBar()
 
     def index(Integer max) {
+        def toolAtual = toolBar("Lista")
         params.max = Math.min(max ?: 10, 100)
-        respond Tag.list(params), model:[tagInstanceCount: Tag.count(), toollbarInstance: toolAtual]
+        render (view:"index", model:[params: params, tagInstanceCount: Tag.count(), toollbarInstance: toolAtual, tagInstanceList: Tag.list(params)])
     }
 
     def show(Tag tagInstance) {
@@ -27,7 +21,6 @@ class TagController {
         respond new Tag(params)
     }
 
-    @Transactional
     def save(Tag tagInstance) {
         if (tagInstance == null) {
             notFound()
@@ -54,7 +47,6 @@ class TagController {
         respond tagInstance
     }
 
-    @Transactional
     def update(Tag tagInstance) {
         if (tagInstance == null) {
             notFound()
@@ -77,7 +69,6 @@ class TagController {
         }
     }
 
-    @Transactional
     def delete(Tag tagInstance) {
 
         if (tagInstance == null) {
@@ -106,10 +97,10 @@ class TagController {
         }
     }
 
-    private def toolBar() {
+    private def toolBar(String tipo) {
         ToolBar titulos = new ToolBar()
         titulos.titulo = "TAG"
-        titulos.subtitulo = "Cadastro de TAG"
+        titulos.subtitulo = tipo + " de " + titulos.titulo
         return titulos
     }
 }

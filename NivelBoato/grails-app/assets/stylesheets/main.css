@@ -65,7 +65,7 @@ body {
 }
 
 a:link, a:visited, a:hover {
-	color: #48802c;
+	color: #333;
 }
 
 a:hover, a:active {
@@ -73,7 +73,7 @@ a:hover, a:active {
 }
 
 h1 {
-	color: #48802c;
+	color: #333;
 	font-weight: normal;
 	font-size: 1.25em;
 	margin: 0.8em 0 0.3em 0;
@@ -283,7 +283,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .required-indicator {
-	color: #48802C;
+	color: #333;
 	display: inline-block;
 	font-weight: bold;
 	margin-left: 0.3em;
@@ -397,7 +397,7 @@ input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
 }
 
 /* TABLES */
-
+/*
 table {
 	border-top: 1px solid #DFDFDF;
 	border-collapse: collapse;
@@ -478,7 +478,7 @@ th.desc a {
 th:hover, tr:hover {
 	background: #E1F2B6;
 }
-
+*/
 /* PAGINATION */
 
 .pagination {

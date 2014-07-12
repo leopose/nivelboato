@@ -5,6 +5,7 @@
         <meta name="layout" content="template">
         <g:set var="entityName" value="${message(code: 'tag.label', default: 'Tag')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
+        <asset:stylesheet src="application.css"/>
     </head>
     <body>
         <div class="page-content">
