@@ -26,6 +26,10 @@ class CategoriaController {
             titulos.subtitulo = "Lista de Categorias"
         }
         
+        if(tipo=="Edit") {
+            titulos.subtitulo = "Editar Categoria"
+        }
+        
         return titulos
     }
     
@@ -45,5 +49,20 @@ class CategoriaController {
         System.out.println("depois de salvar")
         
         redirect(action: "index")
+    }
+    
+    def update(Long id) {
+        def cat = Categoria.get(params.id)
+        cat.properties = params
+        if(!cat.save(flush: true)){
+            flash.message = cat.errors
+        }
+        redirect action: 'edit', id: cat.id
+    }
+    
+    
+    def edit(Long id) {
+        def cat = Categoria.get(id)
+        render view:"edit", model:[categoriaInstance: cat, toollbarInstance: toolBar("Edit")]
     }
 }
