@@ -1,9 +1,15 @@
 dataSource {
     pooled = true
     jmxExport = true
+    
     driverClassName = "com.mysql.jdbc.Driver"
     username = "root"
     password = "admin"
+    
+    //Mudar para esta configuração de banco ou acrescentar o drive de preferencia
+    /*  driverClassName = "org.h2.Driver"
+    username = "sa"
+    password = "" */
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -19,8 +25,13 @@ environments {
         dataSource {
             pooled = true
             loggingSql = true
-            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
+            
             url = "jdbc:mysql://localhost:3306/nivelBoato"
+            
+            //Ativar esta URL para banco em memória
+            //   url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+      
         }
     }
     test {
