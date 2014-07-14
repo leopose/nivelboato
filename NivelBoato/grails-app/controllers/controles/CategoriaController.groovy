@@ -41,12 +41,14 @@ class CategoriaController {
     
     def save() {
         def categoria = new Categoria(params)
-        categoria.dataCadastro =  new Date()
-        categoria.status = true
-        categoria.descricao = "teste"
-        System.out.println("antes de salvar" +categoria.descricao +" " +categoria.id)
-        categoria.save(flush: true)
-        System.out.println("depois de salvar")
+        
+		
+		if(!categoria.save(flush: true)) {
+			 def toolAtual = toolBar("Cadastro")
+			render view:"create", model: [categoriaInstance: categoria,toollbarInstance: toolAtual]
+			return
+		}
+      
         
         redirect(action: "index")
     }
@@ -57,7 +59,7 @@ class CategoriaController {
         if(!cat.save(flush: true)){
             flash.message = cat.errors
         }
-        redirect action: 'edit', id: cat.id
+        redirect action: 'index'
     }
     
     

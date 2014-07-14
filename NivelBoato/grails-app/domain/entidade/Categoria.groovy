@@ -9,14 +9,13 @@ package entidade
 class Categoria {
     
     String descricao
-    Date dataCadastro
-    boolean status
+    Date dataCadastro = new Date()
+    boolean status = true
 
     static constraints = {
         descricao (size: 1..150, blank: false, nullable: false, unique: true)
         status (blank: false, nullable: false)
-        usuarioCadastro (nullable: true)
-        dataCadastro nullable:true
+        usuarioCadastro blank: true, nullable: true
     }
     
     static belongsTo =  [usuarioCadastro : Usuario]
