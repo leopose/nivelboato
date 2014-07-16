@@ -18,7 +18,7 @@
 		<div class="col-md-10">
 			<label class="switch"> <g:checkBox name="status"
 					checked="${categoriaInstance?.status}" /> <span></span>
-			</label> <br />
+			</label>
 		</div>
 	</div>
 </div>
