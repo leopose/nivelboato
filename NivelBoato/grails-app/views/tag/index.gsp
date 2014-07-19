@@ -4,22 +4,13 @@
         <meta name="layout" content="template"/>
         <g:set var="entityName" value="${message(code: 'tag.label', default: 'Tag')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
-        <asset:stylesheet src="application.css"/>
     </head>
     <body>
         <div class="page-content">
             <div class="container">
                 <g:render template="../layouts/pagetoolbar"/>
-                <a href="#show-tag" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-                <div class="nav" role="navigation">
-                    <ul>
-                        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                        <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                        <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-                    </ul>
-                </div>
                 <div id="create-tag" class="content scaffold-create" role="main">
-                    <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+                    
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
@@ -35,18 +26,20 @@
                     <div class="col-md-12">
                         <div class="block">
                             <div class="block-content">
-                                Lista das tags cadastradas.
+                                <p>Lista das tags cadastradas.</p>
                             </div>
                             <g:form controller="tag">
                             <table class="table">
                                 <thead>
                                     <tr>
+                                        <g:sortableColumn property="id" title="${message(code: 'tag.id.label', default: 'Id')}" />
 
                                         <g:sortableColumn property="descricao" title="${message(code: 'tag.descricao.label', default: 'Descricao')}" />
 
                                         <g:sortableColumn property="dataCadastro" title="${message(code: 'tag.dataCadastro.label', default: 'Data Cadastro')}" />
 
                                         <g:sortableColumn property="status" title="${message(code: 'tag.status.label', default: 'Status')}" />
+                                        <th></th>
 
                                     </tr>
                                 </thead>
@@ -54,11 +47,33 @@
                                     <g:each in="${tagInstanceList}" status="i" var="tagInstance">
                                         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                                            <td><g:link action="show" id="${tagInstance.id}">${fieldValue(bean: tagInstance, field: "descricao")}</g:link></td>
+                                            <td>${fieldValue(bean: tagInstance, field: "id")}</td>
 
-                                            <td><g:formatDate date="${tagInstance.dataCadastro}" /></td>
+                                            <td>${fieldValue(bean: tagInstance, field: "descricao")}</td>
 
-                                            <td><g:formatBoolean boolean="${tagInstance.status}" /></td>
+                                            <td><g:formatDate date="${tagInstance.dataCadastro}" type="datetime" style="LONG" timeStyle="SHORT"/></td>
+
+                                            <td><g:checkBox name="status" disabled="true"
+                                                        checked="${tagInstance.status}" /></td>
+                                            <td>
+                                                <center>
+                                                    <g:link action="edit" id="${tagInstance.id}"
+                                                        class="btn btn-success">
+                                                        <i class="fa fa-pencil"></i> Editar</g:link>
+                                                    <g:if test="${tagInstance.status}">
+                                                        <g:link class="btn btn-danger" action="remove" title="Desativar"
+                                                            id="${tagInstance.id}">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </g:link>
+                                                    </g:if>
+                                                    <g:else>
+                                                        <g:link class="btn btn-danger" action="remove" disabled="disabled"
+                                                            id="${tagInstance.id}" title="Desativar">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </g:link>
+                                                    </g:else>
+                                                </center>
+                                            </td>
 
                                         </tr>
                                     </g:each>

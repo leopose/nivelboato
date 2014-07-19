@@ -1,45 +1,33 @@
-<%@ page import="entidade.Tag" %>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="layout" content="template">
         <g:set var="entityName" value="${message(code: 'tag.label', default: 'Tag')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
-        <asset:stylesheet src="application.css"/>
     </head>
     <body>
         <div class="page-content">
             <div class="container">
-                <g:render template="../layouts/pagetoolbar"/>	
-                <a href="#edit-tag" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-                <div class="nav" role="navigation">
-                    <ul>
-                        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                        <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                        <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-                        </ul>
-                    </div>
-                    <div id="edit-tag" class="content scaffold-edit" role="main">
-                        <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
-                    <g:if test="${flash.message}">
-                        <div class="message" role="status">${flash.message}</div>
-                    </g:if>
-                    <g:hasErrors bean="${tagInstance}">
-                        <ul class="errors" role="alert">
-                            <g:eachError bean="${tagInstance}" var="error">
-                                <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
-                                </g:eachError>
-                        </ul>
-                    </g:hasErrors>
-                    <g:form url="[resource:tagInstance, action:'update']" method="PUT" >
-                        <g:hiddenField name="version" value="${tagInstance?.version}" />
-                        <fieldset class="form">
-                            <g:render template="form"/>
-                        </fieldset>
-                        <fieldset class="buttons">
-                            <g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-                        </fieldset>
-                    </g:form>
+                <g:render template="../layouts/pagetoolbar" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="block">
+                            <div class="block-content">
+                                <p>Informe os dados da Categoria.</p>
+                            </div>
+                            <g:form url="[resource:tagInstance, action:'update']" method="PUT" >
+                                <g:hiddenField name="version" value="${tagInstance?.version}" />
+                                <g:render template="form"/>
+                                <div class="block-footer">
+                                    <g:actionSubmit class="btn btn-default" value="Cancelar"
+                                                action="index" />
+                                    <g:actionSubmit class="btn btn-primary" value="Atualizar"
+                                                action="update" />
+                                </div>
+                            </g:form>
+                        </div>
+                    </div>    
                 </div>
             </div>
         </div>
