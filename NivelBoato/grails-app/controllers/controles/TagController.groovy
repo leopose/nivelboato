@@ -39,7 +39,7 @@ class TagController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'tag.label', default: 'Tag'), tagInstance.id])
-                redirect tagInstance
+                redirect action: 'index'
             }
             '*' { respond tagInstance, [status: CREATED] }
         }
@@ -65,7 +65,7 @@ class TagController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Tag.label', default: 'Tag'), tagInstance.id])
-                redirect tagInstance
+                redirect action: 'index'
             }
             '*'{ respond tagInstance, [status: OK] }
         }
@@ -97,6 +97,17 @@ class TagController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    def remove(Long id){
+        def tagInstance = Tag.get(params.id);
+        tagInstance.setStatus(false)
+        if(!tagInstance.save(flush:true)){
+            flash.message = tagInstance.errors
+        }
+            
+        flash.message = "Tag desativada."
+        redirect action:'index'
     }
 
     private def toolBar(String tipo) {
