@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><g:layoutTitle default="Grails"/></title>
+        <title><g:layoutTitle default="Nivel de Boato"/></title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
         <link href="${resource(dir: 'css', file: 'styles.css')}" rel="stylesheet" type="text/css" />
@@ -70,7 +70,7 @@
                                 <li><g:link controller="categoria" action="index">Listar</g:link></li>
                         </ul>
                     </li>    
-                    <li><a href="#"><i class="fa fa-bookmark"></i> TAGs</a>
+                    <li><a href="#"><i class="fa fa-tag"></i> TAGs</a>
                         <ul>
                                 <li><g:link controller="tag" action="create">Cadastrar</g:link></li>
                                 <li><g:link controller="tag" action="index">Listar</g:link></li>
