@@ -3,6 +3,7 @@ package controles
 
 
 import entidade.Categoria
+import groovy.ui.ConsoleTextEditor.RedoAction;
 import utilitario.ToolBar
 
 
@@ -67,4 +68,15 @@ class CategoriaController {
         def cat = Categoria.get(id)
         render view:"edit", model:[categoriaInstance: cat, toollbarInstance: toolBar("Edit")]
     }
+	
+	def remove(Long id){
+		def cat = Categoria.get(params.id);
+		cat.setStatus(false)
+		if(!cat.save(flush:true)){
+			flash.message = cat.errors
+		}
+			
+		flash.message = "Categoria desativada."
+		redirect action:'index'
+	}
 }
