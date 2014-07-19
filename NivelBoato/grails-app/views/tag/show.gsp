@@ -11,15 +11,8 @@
 <body>
     <div class="page-content">
         <div class="container">
-            <g:render template="../layouts/pagetoolbar"/>	
-            <a href="#show-tag" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-            <div class="nav" role="navigation">
-                <ul>
-                    <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                    <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                    <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-                </ul>
-            </div>
+            <g:render template="../layouts/pagetoolbar"/>
+            
                 <div id="show-tag" class="content scaffold-show" role="main">
                     <h1><g:message code="default.show.label" args="[entityName]" /></h1>
                 <g:if test="${flash.message}">
@@ -40,7 +33,7 @@
                         <li class="fieldcontain">
                             <span id="dataCadastro-label" class="property-label"><g:message code="tag.dataCadastro.label" default="Data Cadastro" /></span>
 
-                            <span class="property-value" aria-labelledby="dataCadastro-label"><g:formatDate date="${tagInstance?.dataCadastro}" /></span>
+                            <span class="property-value" aria-labelledby="dataCadastro-label"><g:formatDate date="${tagInstance.dataCadastro}" type="datetime" style="LONG" timeStyle="SHORT"/></span>
 
                         </li>
                     </g:if>

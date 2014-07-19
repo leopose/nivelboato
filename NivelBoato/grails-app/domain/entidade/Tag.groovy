@@ -3,7 +3,7 @@ package entidade
 class Tag {
 
     String descricao
-    Date dataCadastro
+    Date dataCadastro  = new Date()
     boolean status
 
     static constraints = {

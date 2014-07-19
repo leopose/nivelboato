@@ -18,7 +18,9 @@ class TagController {
     }
 
     def create() {
-        respond new Tag(params)
+        def tagInstance = new Tag(params)
+        def toolAtual = toolBar("Cadastro")
+        return [tagInstance: tagInstance,toollbarInstance: toolAtual]
     }
 
     def save(Tag tagInstance) {

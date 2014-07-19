@@ -1,38 +1,24 @@
 <div class="block-content controls">
 
-	<div class="row-form ${hasErrors(bean: tagInstance, field: 'dataCadastro', 'error')} required">
-		<div class="col-md-3">
-			<label for="descricao">
-				<g:message code="tag.descricao.label" default="Descricao" />
-				<span class="required-indicator">*</span>
-			</label>
+	<div class="row-form">
+		<g:hiddenField name="id" value="${tagInstance?.id}" />
+		<div class="col-md-2">
+			<strong>Descrição:</strong>
 		</div>
-		<div class="col-md-9">
-			<g:textField name="descricao" class="form-control" maxlength="150" required="" value="${tagInstance?.descricao}"/>
-		</div>
-	</div>
-
-	<div class="${hasErrors(bean: tagInstance, field: 'dataCadastro', 'error')} required">
-		<div class="col-md-3">
-		<label for="dataCadastro">
-			<g:message code="tag.dataCadastro.label" default="Data Cadastro" />
-			<span class="required-indicator">*</span>
-		</label>
-		</div>
-		<div class="col-md-9">
-			<g:datePicker name="dataCadastro" class="form-control datepicker"  precision="day" value="${tagInstance?.dataCadastro}"  />
+		<div class="col-md-10">
+			<g:textField name="descricao" class="form-control"
+				value="${tagInstance?.descricao}" />
 		</div>
 	</div>
 
-	<div class="${hasErrors(bean: tagInstance, field: 'status', 'error')}">
-		<div class="col-md-3">
-			<label for="status">
-				<g:message code="tag.status.label" default="Ativo" />	
+	<div class="row-form">
+		<div class="col-md-2">
+			<strong>Status:</strong>
+		</div>
+		<div class="col-md-10">
+			<label class="switch"> <g:checkBox name="status"
+					checked="${tagInstance?.status}" /> <span></span>
 			</label>
 		</div>
-		<div class="checkbox col-md-9">
-			<g:checkBox name="status" class="form-control icheck" value="${tagInstance?.status}" />
-		</div>
-
 	</div>
 </div>
