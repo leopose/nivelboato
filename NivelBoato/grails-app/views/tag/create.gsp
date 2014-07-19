@@ -15,8 +15,8 @@
                             <div class="block-content">
                                 <p>Informe os dados da Tag.</p>
                             </div>
-                            <g:form controller="categoria">
-                                <g:eachError bean="${categoriaInstance}">
+                            <g:form controller="tag">
+                                <g:eachError bean="${tagInstance}">
                                     
                                         <div class="alert alert-danger">
                                             <button type="button" class="close" data-dismiss="alert"
