@@ -66,7 +66,7 @@ class CategoriaController {
     
     def edit(Long id) {
         def cat = Categoria.get(id)
-        render view:"create", model:[categoriaInstance: cat, toollbarInstance: toolBar("Edit")]
+        render view:"edit", model:[categoriaInstance: cat, toollbarInstance: toolBar("Edit")]
     }
 	
 	def remove(Long id){
