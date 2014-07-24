@@ -27,19 +27,10 @@
                                 </g:eachError>
                                 <g:render template="form" />
                                 <div class="block-footer">
-                                    
-                                    <g:if test="${!categoriaInstance}">
                                         <button type="reset" class="btn btn-default">Limpar</button>
                                         <g:actionSubmit class="btn btn-primary" value="Cadastar"
                                         action="save" />
-                                    </g:if>
-                                    <g:else>
-                                        <g:actionSubmit class="btn btn-default" value="Cancelar"
-                                                action="index" />
-                                        <g:actionSubmit class="btn btn-primary" value="Atualizar"
-                                            action="update" />
-                                    </g:else>
-                                </div>
+                               </div>
                             </g:form>
                         </div>
                     </div>
