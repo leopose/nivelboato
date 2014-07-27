@@ -4,7 +4,7 @@ class Tag {
 
     String descricao
     Date dataCadastro  = new Date()
-    boolean status
+    boolean status = true
 
     static constraints = {
         descricao size: 1..150, blank: false, unique: true

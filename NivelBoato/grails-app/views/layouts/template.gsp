@@ -14,6 +14,7 @@
         <script type="text/javascript" src="${resource(dir: 'js/plugins/jquery/', file: 'jquery.min.js')}"></script>
         <script type="text/javascript" src="${resource(dir: 'js/plugins/jquery/', file: 'jquery-ui.min.js')}"></script>
         <script type="text/javascript" src="${resource(dir: 'js/plugins/bootstrap/', file: 'bootstrap.min.js')}"></script>
+        <script type="text/javascript" src="${resource(dir: 'js/plugins/jquery/', file: 'bootbox.min.js')}"></script>
         <script type="text/javascript" src="${resource(dir: 'js/plugins/mcustomscrollbar/', file: 'jquery.mCustomScrollbar.min.js')}"></script>
 
 <!-- your javascripts -->
@@ -75,6 +76,12 @@
                             <ul>
                                 <li><g:link controller="tag" action="create">Cadastrar</g:link></li>
                             <li><g:link controller="tag" action="index">Listar</g:link></li>
+                            </ul>
+                        </li>                 
+                        <li><a href="#"><i class="fa fa-users"></i>Usuários</a>
+                            <ul>
+                                <li><g:link controller="tag" action="create">Cadastrar</g:link></li>
+                            <li><g:link controller="tag" action="index">Gerenciar</g:link></li>
                             </ul>
                         </li>                 
 
