@@ -80,8 +80,8 @@
                         </li>                 
                         <li><a href="#"><i class="fa fa-users"></i>Usuários</a>
                             <ul>
-                                <li><g:link controller="tag" action="create">Cadastrar</g:link></li>
-                            <li><g:link controller="tag" action="index">Gerenciar</g:link></li>
+                                <li><g:link controller="usuario" action="create">Cadastrar</g:link></li>
+                            <li><g:link controller="usuario" action="index">Gerenciar</g:link></li>
                             </ul>
                         </li>                 
 

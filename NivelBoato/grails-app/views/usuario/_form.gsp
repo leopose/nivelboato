@@ -47,13 +47,13 @@
             </label>
         </div>
     </div>
-    <div class="row-form">
+        <div class="row-form">
         <div class="col-md-2">
             <strong>Perfil:</strong>
         </div>
         <div class="col-md-10">
-            <g:textField name="perfil" class="form-control"
-            value="${usuarioInstance?.perfil}" />
+            <g:select name="perfil" class="form-control" from="${perfilInstance}" value="${usuarioInstance?.perfil}" />
         </div>
     </div>
+
 </div>

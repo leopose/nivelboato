@@ -65,27 +65,25 @@
                                                     <td><g:checkBox name="status" disabled="true"
                                                         checked="${item.status}" /></td>
                                                     <td>
-                                                    <td>
                                                         ${item.perfil}
                                                     </td>
-                                            <center>
-                                                <g:link action="edit" id="${item.id}"
-                                                    class="btn btn-success">
-                                                    <i class="fa fa-pencil"></i> Editar</g:link>
-                                                <g:if test="${item.status }">
-                                                    <button type="button" id="${item.id}" class="btn btn-danger" title="Desativar">
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </button>
-                                                </g:if>
-                                                <g:else>
-                                                    <button class="btn btn-danger" disabled="disabled"
-                                                    id="${item.id}" title="Desativar">
-                                                    <i class="fa fa-trash-o"></i>
-                                                    </button>
-                                                </g:else>
-                                            </center>
-                                            </td>
-                                            </tr>
+                                                    <td>
+                                                        <center>
+                                                            <g:link action="edit" id="${item.id}"  class="btn btn-success">
+                                                                <i class="fa fa-pencil"></i> Editar</g:link>
+                                                            <g:if test="${item.status }">
+                                                                <button type="button" id="${item.id}" class="btn btn-danger" title="Desativar">
+                                                                    <i class="fa fa-trash-o"></i>
+                                                                </button>
+                                                            </g:if>
+                                                            <g:else>
+                                                                <button class="btn btn-danger" disabled="disabled" id="${item.id}" title="Desativar">
+                                                                <i class="fa fa-trash-o"></i>
+                                                                </button>
+                                                            </g:else>
+                                                        </center>
+                                                    </td>
+                                                </tr>
                                         </g:each>
                                         </tbody>
                                     </table>
