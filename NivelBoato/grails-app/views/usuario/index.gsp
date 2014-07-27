@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta name="layout" content="template" />
-        <title>Categoria</title>
+        <title>Usuário</title>
     </head>
     <body>
         <div class="page-content">
@@ -12,11 +12,11 @@
                     <div class="col-md-12">
                         <div class="block">
                             <div class="block-content">
-                                <p>Lista das categorias cadastradas.</p>
+                                <p>Usuários cadastrados.</p>
                             </div>
-                            <g:form controller="categoria">
+                            <g:form controller="usuario">
                                 <div class="block-content np">
-                                    <g:eachError bean="${categoriaInstance}">
+                                    <g:eachError bean="${usuarioInstance}">
                                         <div class="alert alert-danger">
                                             <button type="button" class="close" data-dismiss="alert"
                                             aria-hidden="true">×</button>
@@ -36,30 +36,38 @@
                                         <tbody>
                                             <tr>
                                                 <th>id</th>
-                                                <th>Descrição</th>
+                                                <th>Nome</th>
+                                                <th>Chave</th>
                                                 <th>Data de Cadastro</th>
-                                                <th>Usuário</th>
+                                                <th>Email</th>
                                                 <th>Status</th>
+                                                <th>Perfil</th>
                                                 <th></th>
                                             </tr>
-                                            <g:each in="${categoriaList}" var="item">
+                                            <g:each in="${usuarioInstance}" var="item">
                                                 <tr>
                                                     <td>
                                                         ${item.id}
                                                     </td>
                                                     <td>
-                                                        ${item.descricao}
+                                                        ${item.nome}
+                                                    </td>
+                                                    <td>
+                                                        ${item.chave}
                                                     </td>
                                                     <td>
                                                         <g:formatDate date="${item.dataCadastro}" type="datetime" style="LONG" timeStyle="SHORT"/>
 
                                                     </td>
                                                     <td>
-                                                        ${item.usuarioCadastro}
+                                                        ${item.email}
                                                     </td>
                                                     <td><g:checkBox name="status" disabled="true"
                                                         checked="${item.status}" /></td>
                                                     <td>
+                                                    <td>
+                                                        ${item.perfil}
+                                                    </td>
                                             <center>
                                                 <g:link action="edit" id="${item.id}"
                                                     class="btn btn-success">
@@ -72,7 +80,7 @@
                                                 <g:else>
                                                     <button class="btn btn-danger" disabled="disabled"
                                                     id="${item.id}" title="Desativar">
-                                                        <i class="fa fa-trash-o"></i>
+                                                    <i class="fa fa-trash-o"></i>
                                                     </button>
                                                 </g:else>
                                             </center>
@@ -88,7 +96,5 @@
                 </div>
             </div>
         </div>
-
-    <script type="text/javascript" src="${resource(dir: 'js', file: 'categoria.js')}"></script>
     </body>
 </html>

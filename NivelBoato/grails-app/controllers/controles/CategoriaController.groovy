@@ -70,7 +70,7 @@ class CategoriaController {
     }
 	
 	def remove(Long id){
-		def cat = Categoria.get(params.id);
+		def cat = Categoria.get(id);
 		cat.setStatus(false)
 		if(!cat.save(flush:true)){
 			flash.message = cat.errors
