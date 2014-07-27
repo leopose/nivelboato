@@ -38,7 +38,7 @@ class UsuarioController {
     
     def save() {
         def usuario = new Usuario(params)
-        
+        usuario.criptografar(usuario.senha)
         if(!usuario.save(flush: true)) {
             def toolAtual = toolBar("Cadastro")
             flash.message = usuario.errors
@@ -49,4 +49,29 @@ class UsuarioController {
         
         redirect(action: "index")
     }
+	
+	def update(Long id) {
+		def usuario = Usuario.get(params.id)
+		usuario.properties = params
+		if(!usuario.save(flush: true)){
+			flash.message = usuario.errors
+		}
+		redirect action: 'index'
+	}
+	
+	def edit(Long id) {
+		def usuario = Usuario.get(id)
+		render view:"edit", model:[usuarioInstance: usuario, toollbarInstance: toolBar("Edit")]
+	}
+	
+	def remove(Long id){
+		def usuario = Usuario.get(id);
+		usuario.setStatus(false)
+		if(!usuario.save(flush:true)){
+			flash.message = usuario.errors
+		}
+			
+		flash.message = "Usuário desativado."
+		redirect action:'index'
+	}
 }

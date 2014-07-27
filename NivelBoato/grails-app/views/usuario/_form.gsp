@@ -21,15 +21,6 @@
     </div>
     <div class="row-form">
         <div class="col-md-2">
-            <strong>Senha:</strong>
-        </div>
-        <div class="col-md-10">
-            <g:passwordField name="senha" class="form-control"
-            value="${usuarioInstance?.senha}" />
-        </div>
-    </div>
-    <div class="row-form">
-        <div class="col-md-2">
             <strong>Email:</strong>
         </div>
         <div class="col-md-10">
@@ -52,7 +43,7 @@
             <strong>Perfil:</strong>
         </div>
         <div class="col-md-10">
-            <g:select name="perfil" class="form-control" from="${perfilInstance}" value="${usuarioInstance?.perfil}" />
+            <g:select name="perfil" class="form-control" from="${usuarioInstance.listaPerfil()}" value="${usuarioInstance?.perfil}" />
         </div>
     </div>
 
