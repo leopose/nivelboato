@@ -46,6 +46,7 @@ class CategoriaController {
 		
 		if(!categoria.save(flush: true)) {
 			 def toolAtual = toolBar("Cadastro")
+                        flash.message = categoria.errors
 			render view:"create", model: [categoriaInstance: categoria,toollbarInstance: toolAtual]
 			return
 		}

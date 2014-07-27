@@ -2,6 +2,10 @@
 
 package entidade
 
+import utilitario.EnumPerfil;
+
+
+
 /**
  *
  * @author leonardo
@@ -13,31 +17,56 @@ class Usuario {
     String senha
     String email
     Date dataCadastro = new Date()
-    boolean status
-    Perfil perfil
+    boolean status = true
+    long perfil
 
     static constraints = {
         chave blank: false, nullable: false, unique: true
         senha blank: false, nullable: false
         email email:true, blank: false, nullable: false
+        
+    }
+
+    public String getPerfil(){
+        
+        return buscaPorNumero(perfil)
+		
+    }
+
+    public void setPerfil(String nomeperfil){
+        long tipo = buscaPorTipo(nomeperfil)
+        perfil = tipo
     }
 	
+	public long buscaPorTipo(String nomeperfil){
+		def idenum = 0
+		for(EnumPerfil p: EnumPerfil.values()){
+			if(p.getTipo().equals(nomeperfil)){
+				idenum = p.getNumero()
+				break
+			}
+		}
+		return idenum
+	}
+
+	public String buscaPorNumero(long idenum){
+		def enumnome = "não encontrado"
+		for(EnumPerfil p: EnumPerfil.values()){
+			if(p.getNumero().equals(idenum)){
+				enumnome = p.getTipo()
+				break
+			}
+		}
+		return enumnome
+	}
 	
-    public enum Perfil{
-        FUNCIONARIO("Funcionário",1),
-        ALUNO("Aluno",2),
-        PROFESSOR("Professor",3),
-        GESTOR("Gestor",4),
-        ADMINISTRADOR("Administrador",5)
-		
-        private final long id
-        private final String nome
-		
-        Perfil(long id, String nome){
-            this.id = id;
-            this.nome = nome;
-        }
-    }
+	public def listaPerfil(){
+		def tipos = []
+		for(EnumPerfil p: EnumPerfil.values()){
+			tipos.add(p.getTipo())
+		}
+		return tipos
+	}
 }
 
 
