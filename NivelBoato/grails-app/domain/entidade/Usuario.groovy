@@ -24,6 +24,8 @@ class Usuario {
 	static constraints = {
 		chave blank: false, nullable: false, unique: true
 		senha blank: false, nullable: false
+		perfil blank: false, nullable: false
+		nome blank: false, nullable: false
 		email email:true, blank: false, nullable: false
 	}
 
