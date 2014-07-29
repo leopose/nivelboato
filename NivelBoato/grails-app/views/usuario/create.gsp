@@ -26,15 +26,7 @@
 
 							</g:eachError>
 							<g:render template="form" />
-							<div class="row-form">
-								<div class="col-md-2">
-									<strong>Senha:</strong>
-								</div>
-								<div class="col-md-10">
-									<g:passwordField name="senha" class="form-control"
-										value="${usuarioInstance?.senha}" />
-								</div>
-							</div>
+							
 							<div class="block-footer">
 								<button type="reset" class="btn btn-default">Limpar</button>
 								<g:actionSubmit class="btn btn-primary" value="Cadastar"
