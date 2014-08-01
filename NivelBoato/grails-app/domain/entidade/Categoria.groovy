@@ -15,7 +15,7 @@ class Categoria {
     static constraints = {
         descricao (size: 1..150, blank: false, nullable: false, unique: true)
         status (blank: false, nullable: false)
-        usuarioCadastro blank: true, nullable: true
+       
     }
     
     static belongsTo =  [usuarioCadastro : Usuario]

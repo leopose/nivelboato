@@ -42,7 +42,7 @@ class CategoriaController {
     
     def save() {
         def categoria = new Categoria(params)
-        
+        categoria.usuarioCadastro = session.user
 		
 		if(!categoria.save(flush: true)) {
 			 def toolAtual = toolBar("Cadastro")

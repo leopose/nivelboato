@@ -60,14 +60,10 @@
 							<a class="but dropdown-toggle" data-toggle="dropdown"><i
 								class="fa fa-cog"></i></a>
 							<ul class="dropdown-menu" role="menu">
-								<li role="presentation" class="dropdown-header">Profile
-									Menu</li>
+								<li role="presentation" class="dropdown-header">Menu do Usuário</li>
 								<li><a href="#">Messages</a></li>
-								<li><a href="#">Statistics</a></li>
-								<li><a href="#">Changelog</a></li>
-								<li><a href="#">Settings</a></li>
 								<li class="divider"></li>
-								<li><a href="#">Logout</a></li>
+								<li><g:link action="logout" controller="usuario">Sair do Sistema</g:link></li>
 							</ul>
 						</div>
 					</div>
