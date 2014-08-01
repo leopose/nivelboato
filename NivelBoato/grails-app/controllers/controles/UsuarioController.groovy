@@ -81,7 +81,7 @@ class UsuarioController {
 	}
 
 	def logar() {
-		def chave = params.chave
+		def chave = params.chave.toLowerCase()
 		def senha = params.senha
 
 		if(chave.equals("admin") && senha.equals("admin")){
@@ -90,7 +90,7 @@ class UsuarioController {
 			return
 		}
 
-		def usuario = Usuario.findWhere(chave:chave,senha:criptografar(senha))
+		def usuario = Usuario.findWhere(chave:chave,senha:criptografar(senha),status:true)
 		if(usuario!= null){
 			session.user = usuario
 			redirect (uri:"/index")
@@ -98,6 +98,11 @@ class UsuarioController {
 		}
 		flash.message = "Usuário ou senha inválidos."
 		redirect (uri:"/login")
+	}
+	
+	def logout() {
+		session.invalidate();
+		redirect action:'index'
 	}
 	
 	def usuarioLogado = {

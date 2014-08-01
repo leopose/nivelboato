@@ -55,7 +55,7 @@
 
                                                     </td>
                                                     <td>
-                                                        ${item.usuarioCadastro}
+                                                        ${item.usuarioCadastro.nome}
                                                     </td>
                                                     <td><g:checkBox name="status" disabled="true"
                                                         checked="${item.status}" /></td>

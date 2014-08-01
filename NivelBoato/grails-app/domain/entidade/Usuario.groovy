@@ -3,7 +3,8 @@
 package entidade
 
 import java.security.MessageDigest
-import utilitario.EnumPerfil;
+import utilitario.EnumPerfil
+
 
 
 
@@ -11,7 +12,7 @@ import utilitario.EnumPerfil;
  *
  * @author leonardo
  */
-class Usuario {
+class Usuario implements Serializable {
 
 	String nome
 	String chave
@@ -37,6 +38,10 @@ class Usuario {
 	public void setPerfil(String nomeperfil){
 		long tipo = buscaPorTipo(nomeperfil)
 		perfil = tipo
+	}
+	
+	public void setChave(String chave){
+		this.chave = chave.toLowerCase()
 	}
 
 	public void criptografar(String digitado){

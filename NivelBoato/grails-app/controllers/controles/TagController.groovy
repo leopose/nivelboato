@@ -33,7 +33,9 @@ class TagController {
             respond tagInstance.errors, view:'create'
             return
         }
-
+		
+		tagInstance.usuarioCadastro = session.user
+		
         tagInstance.save flush:true
 
         request.withFormat {
