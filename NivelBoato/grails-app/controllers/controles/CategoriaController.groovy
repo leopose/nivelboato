@@ -3,6 +3,7 @@ package controles
 
 
 import entidade.Categoria
+import grails.converters.JSON;
 import groovy.ui.ConsoleTextEditor.RedoAction;
 import utilitario.ToolBar
 
@@ -15,7 +16,23 @@ class CategoriaController {
         render (view:"index", model:[toollbarInstance: toolAtual, categoriaList: Categoria.findAll()])
     }
     
-    
+    def listaTodas() {
+		def lista = []
+		
+		Categoria.findAll().each {it ->
+			def mapa = [:]
+			mapa.id = it.id
+			mapa.dataCadastro= it.dataCadastro.format("dd/MM/yyyy hh:mm:SS")
+			mapa.descricao= it.descricao
+			mapa.status= it.status
+			mapa.usuarioCadastro= it.usuarioCadastro.nome
+			lista += mapa
+		}
+		def dados = [:]
+		dados.data = lista
+		
+		render dados as JSON
+	}
     private def toolBar(def tipo) {
         ToolBar titulos = new ToolBar()
         titulos.titulo = "Categoria"
