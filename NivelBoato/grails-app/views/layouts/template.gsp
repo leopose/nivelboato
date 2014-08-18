@@ -22,6 +22,8 @@
 	src="${resource(dir: 'js/plugins/jquery/', file: 'bootbox.min.js')}"></script>
 <script type="text/javascript"
 	src="${resource(dir: 'js/plugins/mcustomscrollbar/', file: 'jquery.mCustomScrollbar.min.js')}"></script>
+<script type="text/javascript"
+	src="${resource(dir: 'js/plugins/datatables/', file: 'jquery.dataTables.min.js')}"></script>
 
 <!-- your javascripts -->
 
@@ -51,16 +53,17 @@
 			</div>
 
 			<div class="profile">
-				<img id="avatarUsuario"/>
+				<img id="avatarUsuario" />
 				<div class="profile-info">
-					<a id="nomeUsuario" href="#" class="profile-title"></a> 
-					<span id="perfilUsuario" class="profile-subtitle"></span>
+					<a id="nomeUsuario" href="#" class="profile-title"></a> <span
+						id="perfilUsuario" class="profile-subtitle"></span>
 					<div class="profile-buttons">
 						<div class="btn-group">
 							<a class="but dropdown-toggle" data-toggle="dropdown"><i
 								class="fa fa-cog"></i></a>
 							<ul class="dropdown-menu" role="menu">
-								<li role="presentation" class="dropdown-header">Menu do Usuário</li>
+								<li role="presentation" class="dropdown-header">Menu do
+									Usuário</li>
 								<li><a href="#">Messages</a></li>
 								<li class="divider"></li>
 								<li><g:link action="logout" controller="usuario">Sair do Sistema</g:link></li>
@@ -100,6 +103,6 @@
 
 	</div>
 	<script type="text/javascript"
-	src="${resource(dir: 'js', file: 'utilitario.js')}"></script>
+		src="${resource(dir: 'js', file: 'utilitario.js')}"></script>
 </body>
 </html>
