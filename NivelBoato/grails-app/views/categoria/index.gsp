@@ -55,8 +55,7 @@
 	</div>
 
 
-	<script type="text/javascript"
-		src="${resource(dir: 'js', file: 'util.datatable.js')}"></script>
+	
 	<script type="text/javascript"
 		src="${resource(dir: 'js', file: 'categoria.js')}"></script>
 </body>
