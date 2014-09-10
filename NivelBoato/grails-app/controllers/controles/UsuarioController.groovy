@@ -1,9 +1,9 @@
 package controles
 
 import entidade.Usuario
+import entidade.Perfil
 import grails.converters.JSON
 import java.security.MessageDigest
-import utilitario.EnumPerfil
 import utilitario.ToolBar
 
 class UsuarioController {
@@ -34,7 +34,7 @@ class UsuarioController {
 
 	def create = {
 		def usuarioInstance = new Usuario(params)
-		def perfil = usuarioInstance.listaPerfil()
+		def perfil = Perfil.findAllByStatus(true)
 		return [usuarioInstance: usuarioInstance,toollbarInstance: toolBar("Cadastro"), perfilInstance: perfil]
 	}
 
@@ -66,7 +66,7 @@ class UsuarioController {
 
 	def edit(Long id) {
 		def usuario = Usuario.get(id)
-		render view:"edit", model:[usuarioInstance: usuario, toollbarInstance: toolBar("Edit")]
+		render view:"edit", model:[usuarioInstance: usuario, perfilInstance:Perfil.findAllByStatus(true), toollbarInstance: toolBar("Edit")]
 	}
 
 	def remove(Long id){

@@ -34,8 +34,8 @@
 		</div>
 		<div class="col-md-10">
 			<g:select name="perfil" class="form-control"
-				from="${usuarioInstance.listaPerfil()}"
-				value="${usuarioInstance?.perfil}" />
+				from="${perfilInstance}" optionKey="id" optionValue="descricao"
+				value="${usuarioInstance?.perfil?.id}" />
 		</div>
 	</div>
 	<g:if test="${!usuarioInstance?.id}">

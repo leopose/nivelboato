@@ -4,23 +4,21 @@ package entidade
 
 import java.security.MessageDigest
 import utilitario.EnumPerfil
-
-
-
-
+import entidade.Perfil
 /**
  *
  * @author leonardo
  */
 class Usuario implements Serializable {
-
+	Integer id
 	String nome
 	String chave
 	String senha
 	String email
 	Date dataCadastro = new Date()
 	boolean status = true
-	long perfil
+	
+	static belongsTo =  [perfil : Perfil]
 
 	static constraints = {
 		chave blank: false, nullable: false, unique: true
@@ -30,15 +28,18 @@ class Usuario implements Serializable {
 		email email:true, blank: false, nullable: false
 	}
 
-	public String getPerfil(){
+	 static mapping =  {
+        table "TB_Usuario"
+        version false
+        nome column: "Nome"
+        chave column: "CPF"
+        email column: "Email"
+        dataCadastro column: "DataCadastro"
+        status column: "Ativo"
+        perfil column: "CodPerfil"
+        id  column: "CodUsuario"
+    }
 
-		return buscaPorNumero(perfil)
-	}
-
-	public void setPerfil(String nomeperfil){
-		long tipo = buscaPorTipo(nomeperfil)
-		perfil = tipo
-	}
 	
 	public void setChave(String chave){
 		this.chave = chave.toLowerCase()
@@ -55,35 +56,6 @@ class Usuario implements Serializable {
 			this.senha = hexString.toString();
 	}
 
-	public long buscaPorTipo(String nomeperfil){
-		def idenum = 0
-		for(EnumPerfil p: EnumPerfil.values()){
-			if(p.getTipo().equals(nomeperfil)){
-				idenum = p.getNumero()
-				break
-			}
-		}
-		return idenum
-	}
-
-	public String buscaPorNumero(long idenum){
-		def enumnome = "não encontrado"
-		for(EnumPerfil p: EnumPerfil.values()){
-			if(p.getNumero().equals(idenum)){
-				enumnome = p.getTipo()
-				break
-			}
-		}
-		return enumnome
-	}
-
-	public def listaPerfil(){
-		def tipos = []
-		for(EnumPerfil p: EnumPerfil.values()){
-			tipos.add(p.getTipo())
-		}
-		return tipos
-	}
 }
 
 

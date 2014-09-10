@@ -6,10 +6,9 @@ package entidade
  *
  * @author leonardo
  */
-class Categoria {
+class Perfil {
     Integer id
     String descricao
-    Date dataCadastro = new Date()
     boolean status = true
 
     static constraints = {
@@ -17,17 +16,13 @@ class Categoria {
         status (blank: false, nullable: false)
        
     }
-    
-    static belongsTo =  [usuarioCadastro : Usuario]
-   
+
      static mapping =  {
-        table "TB_Categoria"
+        table "TB_Perfil"
         version false
-        descricao column: "DescricaoCategoria"
+        descricao column: "DescricaoPerfil"
         dataCadastro column: "DataCadastro"
-        status column: "Ativo"
-        id column: "CodCategoria"
-        usuarioCadastro column: "CodUsuario"
+        status column: "Status"
+        id column: "CodPerfil"
     }
 }
-
