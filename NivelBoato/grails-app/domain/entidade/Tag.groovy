@@ -1,7 +1,7 @@
 package entidade
 
 class Tag {
-
+	Integer id
     String descricao
     Date dataCadastro  = new Date()
     boolean status = true
@@ -13,4 +13,14 @@ class Tag {
     }
     
     static belongsTo = [usuarioCadastro: Usuario]
+
+    static mapping =  {
+        table "TB_Tag"
+        version false
+        descricao column: "DescricaoTag"
+        dataCadastro column: "DataCadastro"
+        status column: "Ativo"
+        id  column: "CodTag"
+        usuarioCadastro  column: "CodUsuario"
+    }
 }

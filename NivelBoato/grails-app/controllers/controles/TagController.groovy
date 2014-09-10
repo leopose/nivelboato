@@ -23,28 +23,19 @@ class TagController {
         return [tagInstance: tagInstance,toollbarInstance: toolAtual]
     }
 
-    def save(Tag tagInstance) {
-        if (tagInstance == null) {
-            notFound()
+    def save() {
+        def tag = new Tag(params)
+        tag.usuarioCadastro = session.user
+        
+        if(!tag.save(flush: true)) {
+             def toolAtual = toolBar("Cadastro")
+                        flash.message = tag.errors
+            render view:"create", model: [tagInstance: tag,toollbarInstance: toolAtual]
             return
         }
+        
+        redirect(action: "index")
 
-        if (tagInstance.hasErrors()) {
-            respond tagInstance.errors, view:'create'
-            return
-        }
-		
-		tagInstance.usuarioCadastro = session.user
-		
-        tagInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'tag.label', default: 'Tag'), tagInstance.id])
-                redirect action: 'index'
-            }
-            '*' { respond tagInstance, [status: CREATED] }
-        }
     }
 
     def edit(Tag tagInstance) {

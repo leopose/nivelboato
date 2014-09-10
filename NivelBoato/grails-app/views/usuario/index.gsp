@@ -63,7 +63,7 @@
 												<td><g:checkBox name="status" disabled="true"
 														checked="${item.status}" /></td>
 												<td>
-													${item.perfil}
+													${item.perfil.descricao}
 												</td>
 												<td>
 													<center>
