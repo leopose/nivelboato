@@ -2,8 +2,8 @@ dataSource {
     pooled = true
     jmxExport = true
     driverClassName = "com.mysql.jdbc.Driver"
-    username = "root"
-    password = "admin"
+    username = "appboato_Manager"
+    password = "GerenciaB0ato"
    /* driverClassName = "org.h2.Driver"
     username = "sa"
     password = "" */
@@ -23,7 +23,7 @@ environments {
             pooled = true
             loggingSql = true
             dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost:3306/NivelBoato"
+            url = "jdbc:mysql://70.38.16.240:3306/appboato_NivelBoatoTeste"
             //url = "jdbc:h2:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }
