@@ -51,8 +51,9 @@
 			</div>
 		</div>
 	</div>
-   	<script type="text/javascript" src="${resource(dir: 'js', file: 'tag.js')}">
-        <script type="text/javascript">
+   	<script type="text/javascript" src="${resource(dir: 'js', file: 'tag.js')}"></script>
+	<script type="text/javascript">
+		$('#home').removeClass('active');
 		$('#menuTag').addClass('active open openable');
 		$('#menuTagListar').addClass('active');
 	</script>
