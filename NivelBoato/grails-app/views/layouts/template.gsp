@@ -74,22 +74,22 @@
 			</div>
 
 			<ul class="navigation">
-				<li class="active"><g:link resource="index">
+				<li id="home" class="active"><g:link resource="index">
 						<i class="fa fa-dashboard"></i>Página Inicial</g:link></li>
-				<li><a href="#"><i class="fa fa-bookmark"></i> Categorias</a>
+				<li id="menuCategoria"><a href="#"><i class="fa fa-bookmark"></i> Categorias</a>
 					<ul>
-						<li><g:link controller="categoria" action="create">Cadastrar</g:link></li>
-						<li><g:link controller="categoria" action="index">Listar</g:link></li>
+						<li id="menuCategoriaCadastrar"><g:link controller="categoria" action="create">Cadastrar</g:link></li>
+						<li id="menuCategoriaListar"><g:link controller="categoria" action="index">Listar</g:link></li>
 					</ul></li>
-				<li><a href="#"><i class="fa fa-tag"></i> TAGs</a>
+				<li id="menuTag"><a href="#"><i class="fa fa-tag"></i> TAGs</a>
 					<ul>
-						<li><g:link controller="tag" action="create">Cadastrar</g:link></li>
-						<li><g:link controller="tag" action="index">Listar</g:link></li>
+						<li id="menuTagCadastrar"><g:link controller="tag" action="create">Cadastrar</g:link></li>
+						<li id="menuTagListar"><g:link controller="tag" action="index">Listar</g:link></li>
 					</ul></li>
-				<li><a href="#"><i class="fa fa-users"></i>Usuários</a>
+				<li id="menuUsuario"><a href="#"><i class="fa fa-users"></i>Usuários</a>
 					<ul>
-						<li><g:link controller="usuario" action="create">Cadastrar</g:link></li>
-						<li><g:link controller="usuario" action="index">Gerenciar</g:link></li>
+						<li id="menuUsuarioCadastrar"><g:link controller="usuario" action="create">Cadastrar</g:link></li>
+						<li id="menuUsuarioGerenciar"><g:link controller="usuario" action="index">Gerenciar</g:link></li>
 					</ul></li>
 
 			</ul>
