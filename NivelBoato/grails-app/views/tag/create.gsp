@@ -39,5 +39,10 @@
             </div> 
         </div> 
     </div>
+    <script type="text/javascript">
+        $('#home').removeClass('active');
+        $('#menuTag').addClass('active open openable');
+        $('#menuTagCadastrar').addClass('active');
+    </script>
 </body>
 </html>
