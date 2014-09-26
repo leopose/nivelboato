@@ -58,5 +58,10 @@
 	
 	<script type="text/javascript"
 		src="${resource(dir: 'js', file: 'categoria.js')}"></script>
+	<script type="text/javascript">
+		$('#home').removeClass('active');
+		$('#menuCategoria').addClass('active open openable');
+		$('#menuCategoriaListar').addClass('active');
+	</script>
 </body>
 </html>
