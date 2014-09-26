@@ -1,5 +1,6 @@
 package controles
 import entidade.Tag
+import grails.converters.JSON
 import utilitario.ToolBar
 
 class TagController {
@@ -11,6 +12,24 @@ class TagController {
         def toolAtual = toolBar("Lista")
         params.max = Math.min(max ?: 10, 100)
         render (view:"index", model:[params: params, tagInstanceCount: Tag.count(), toollbarInstance: toolAtual, tagInstanceList: Tag.list(params)])
+    }
+
+    def listaTodas() {
+        def lista = []
+        
+        Tag.findAll().each {it ->
+            def mapa = [:]
+            mapa.id = it.id
+            mapa.dataCadastro= it.dataCadastro.format("dd/MM/yyyy hh:mm:SS")
+            mapa.descricao= it.descricao
+            mapa.status= it.status
+            mapa.usuarioCadastro= it.usuarioCadastro.nome
+            lista += mapa
+        }
+        def dados = [:]
+        dados.data = lista
+        
+        render dados as JSON
     }
 
     def show(Tag tagInstance) {

@@ -14,7 +14,7 @@
                     <div class="col-md-12">
                         <div class="block">
                             <div class="block-content">
-                                <p>Informe os dados da Categoria.</p>
+                                <p>Informe os dados da TAG.</p>
                             </div>
                             <g:form url="[resource:tagInstance, action:'update']" method="PUT" >
                                 <g:hiddenField name="version" value="${tagInstance?.version}" />
