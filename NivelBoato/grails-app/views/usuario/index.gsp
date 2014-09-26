@@ -94,5 +94,10 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$('#home').removeClass('active');
+		$('#menuUsuario').addClass('active open openable');
+		$('#menuUsuarioGerenciar').addClass('active');
+	</script>
 </body>
 </html>
