@@ -1,10 +1,14 @@
 package controles
 
-class BoatoController {
+import nivelboato.BoatoService
 
+class BoatoController {
+    def boatoService
+    
     def index() { }
 	
 	def create() {
-		render view:"create"
+           
+            render (view:"create", model:[listCategoriaInstance: boatoService.listaCategorias()])
 	}
 }
