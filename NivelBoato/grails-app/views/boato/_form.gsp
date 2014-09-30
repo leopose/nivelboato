@@ -23,12 +23,9 @@
 			<strong>Categoria:</strong>
 		</div>
 		<div class="col-md-10">
-			<select class="form-control">
-				<option>Option 1</option>
-				<option>Option 2</option>
-				<option>Option 3</option>
-				<option>Option 4</option>
-			</select>
+			<g:select name="categoria" class="form-control"
+				from="${listCategoriaInstance}" optionKey="id" optionValue="descricao"
+				value="${boatoInstance?.categoria?.id}" />
 		</div>
 	</div>
 	<div class="row-form">
@@ -36,7 +33,7 @@
 			<strong>Tags:</strong>
 		</div>
 		<div class="col-md-10">
-			<input type="text" class="tagsinput" value="tag1,tag2" />
+			<input type="text" class="tagsinput" value="tag1,tag2" data-defaultText="add a tag"  />
 		</div>
 	</div>
 

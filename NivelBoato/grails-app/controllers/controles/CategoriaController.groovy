@@ -33,6 +33,7 @@ class CategoriaController {
 		
 		render dados as JSON
 	}
+    
     private def toolBar(def tipo) {
         ToolBar titulos = new ToolBar()
         titulos.titulo = "Categoria"

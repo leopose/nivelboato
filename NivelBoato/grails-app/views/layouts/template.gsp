@@ -44,6 +44,14 @@
 				<li class="search"><input type="text" class="form-control"
 					placeholder="Search..." /></li>
 			</ul>
+                        
+                        <ul class="page-head-elements pull-right">
+                            <li>
+                                <div class="widget-info widget-from">
+                                    <g:link class="badge btn badge-success" controller="boato" action="create"><i class="fa fa-bullhorn"></i> Novo Boato</g:link>
+                                </div>
+                            </li>
+                        </ul>
 		</div>
 
 		<div class="page-navigation">
