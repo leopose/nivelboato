@@ -4,6 +4,8 @@ dataSource {
     driverClassName = "com.mysql.jdbc.Driver"
     username = "appboato_Manager"
     password = "GerenciaB0ato"
+    //username = "root"
+    //password = "admin"
    /* driverClassName = "org.h2.Driver"
     username = "sa"
     password = "" */
@@ -24,6 +26,7 @@ environments {
             loggingSql = true
             dbCreate = "validate" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://70.38.16.240:3306/appboato_NivelBoatoTeste"
+            //url = "jdbc:mysql://localhost:3306/NivelBoato"
             //url = "jdbc:h2:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
     }

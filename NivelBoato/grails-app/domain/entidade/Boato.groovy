@@ -10,6 +10,7 @@ import entidade.Usuario
  */
 class Boato {
 	Integer id
+    String titulo
 	String descricao
 	Date dataInicio
 	Date dataFim
@@ -20,6 +21,9 @@ class Boato {
 
 	static constraints = {
 		descricao blank: false, nullable: false
+        dataInicio blank: false, nullable: false
+        dataFim blank: false, nullable: false
+        tags blank: true, nullable: true
 	}
 
 	 static mapping =  {
@@ -31,6 +35,7 @@ class Boato {
         dataPublicado column: "DataPublicado"
         categoria column: "CodCategoria"
         usuarioCadastro column: "CodUsuario"
+        titulo column: "TituloBoato"
         id  column: "CodBoato"
         tags joinTable: [name: 'TB_BoatoTag',
         				key: 'CodBoato',
