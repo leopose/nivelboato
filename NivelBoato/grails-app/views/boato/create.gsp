@@ -4,6 +4,10 @@
         <meta name="layout" content="template" />
         <title>Boato</title>
    <script type="text/javascript" src="${resource(dir: 'js/plugins/tagsinput/', file: 'jquery.tagsinput.min.js')}"></script>
+   <script type="text/javascript" src="${resource(dir: 'js/plugins/validation/languages/', file: 'jquery.validationEngine-pt_BR.js')}"></script>
+   <script type="text/javascript" src="${resource(dir: 'js/plugins/validation/', file: 'jquery.validationEngine.js')}"></script>
+   <script type="text/javascript" src="${resource(dir: 'js/', file: 'boato.js')}"></script>
+
     </head>
     <body>
         <div class="page-content">
@@ -15,7 +19,7 @@
                             <div class="block-content">
                                 <p>Informe os dados do novo Boato.</p>
                             </div>
-                            <g:form controller="categoria">
+                            <g:form name="formBoato" method="post" controller="boato">
                                 <g:eachError bean="${boatoInstance}">
                                     
                                         <div class="alert alert-danger">
@@ -26,6 +30,14 @@
                                         </div>
                                     
                                 </g:eachError>
+                                <g:if test="${cadastroInstance == 'ok'}">
+                                    <div class="alert alert-success">
+                                            <button type="button" class="close" data-dismiss="alert"
+                                            aria-hidden="true">×</button>
+                                            <strong>Ok!</strong>
+                                            <g:message code="${flash.message}"/>
+                                    </div>
+                                </g:if>
                                 <g:render template="form" />
                                 <div class="block-footer">
                                         <button type="reset" class="btn btn-default">Limpar</button>
@@ -38,5 +50,6 @@
                 </div>
             </div>
         </div>
+    
     </body>
 </html>
