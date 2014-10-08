@@ -1,7 +1,7 @@
 
 package entidade
 
-
+import java.util.Date
 /**
  *
  * @author leonardo
