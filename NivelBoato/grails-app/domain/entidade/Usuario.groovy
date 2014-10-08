@@ -5,6 +5,7 @@ package entidade
 import java.security.MessageDigest
 import utilitario.EnumPerfil
 import entidade.Perfil
+import java.util.Date
 /**
  *
  * @author leonardo

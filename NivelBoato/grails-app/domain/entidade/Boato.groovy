@@ -4,29 +4,30 @@ package entidade
 
 import entidade.Categoria
 import entidade.Usuario
+import java.util.Date
 /**
  *
  * @author leonardo
  */
 class Boato {
-	Integer id
+    Integer id
     String titulo
-	String descricao
-	Date dataInicio
-	Date dataFim
-	Date dataPublicado = new Date()
+    String descricao
+    Date dataInicio
+    Date dataFim
+    Date dataPublicado = new Date()
 	
-	static belongsTo =  [categoria : Categoria, usuarioCadastro: Usuario]
-	static hasMany = [tags: Tag]
+    static belongsTo =  [categoria : Categoria, usuarioCadastro: Usuario]
+    static hasMany = [tags: Tag]
 
-	static constraints = {
-		descricao blank: false, nullable: false
+    static constraints = {
+        descricao blank: false, nullable: false
         dataInicio blank: false, nullable: false
         dataFim blank: false, nullable: false
         tags blank: true, nullable: true
-	}
+    }
 
-	 static mapping =  {
+    static mapping =  {
         table "TB_Boato"
         version false
         descricao column: "DescricaoBoato"
@@ -38,8 +39,8 @@ class Boato {
         titulo column: "TituloBoato"
         id  column: "CodBoato"
         tags joinTable: [name: 'TB_BoatoTag',
-        				key: 'CodBoato',
-        				column: 'CodTag']
+            key: 'CodBoato',
+            column: 'CodTag']
     }
 
 }
