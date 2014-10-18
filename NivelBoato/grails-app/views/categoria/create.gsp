@@ -15,22 +15,24 @@
                                 <p>Informe os dados da Categoria.</p>
                             </div>
                             <g:form controller="categoria">
-                                <g:eachError bean="${categoriaInstance}">
-                                    
+                                <div class="block-content">
+                                    <g:eachError bean="${categoriaInstance}">
+
                                         <div class="alert alert-danger">
                                             <button type="button" class="close" data-dismiss="alert"
                                             aria-hidden="true">×</button>
                                             <strong>Ops!</strong>
                                             <g:message error="${it}"/>
                                         </div>
-                                    
-                                </g:eachError>
+
+                                    </g:eachError>
+                                </div>
                                 <g:render template="form" />
                                 <div class="block-footer">
-                                        <button type="reset" class="btn btn-default">Limpar</button>
-                                        <g:actionSubmit class="btn btn-primary" value="Cadastar"
+                                    <button type="reset" class="btn btn-default">Limpar</button>
+                                    <g:actionSubmit class="btn btn-primary" value="Cadastar"
                                         action="save" />
-                               </div>
+                                </div>
                             </g:form>
                         </div>
                     </div>
