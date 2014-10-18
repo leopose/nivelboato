@@ -19,6 +19,9 @@ class BoatoController {
         render (view:"create", model:[listCategoriaInstance: boatoService.listaCategorias(), toollbarInstance: toolBar("Cadastro"), cadastroInstance: params.cadastro])
 	}
 
+    def list() {
+        render (view: "list")
+    }
 	def save() {
 		def boato = new Boato(params)
         boato.usuarioCadastro = session.user

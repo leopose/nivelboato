@@ -6,8 +6,6 @@
 
     </head>
     <body>
-    	
-        	<g:render template="layouts/pagetoolbar"/>
-
+        <g:render template="layouts/pagetoolbar"/>
     </body>
 </html>
