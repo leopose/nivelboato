@@ -23,16 +23,23 @@ class BoatoController {
         render (view: "list")
     }
 	def save() {
-		def boato = new Boato(params)
+		
+        String dataInicioStr = params.dataInicio
+        String dataFimStr = params.dataFim
+
+        params.dataInicio = null
+        params.dataFim = null
+
+        def boato = new Boato(params)
         boato.usuarioCadastro = session.user
 		boato.categoria = Categoria.get(params.categoria)
 
         def listaTags = []
         listaTags = params.tag.split(",")
 
-        boato.dataInicio = Date.parse('dd/MM/yyyy', params.dataInicio)
-        boato.dataFim = params.dataFim ? Date.parse('dd/MM/yyyy', params.dataFim) : null
-        
+        boato.dataInicio = Date.parse('dd/MM/yyyy', dataInicioStr)
+        boato.dataFim = dataFimStr ? Date.parse('dd/MM/yyyy', dataFimStr) : null
+
         if(!(params.tag.trim() == null || params.tag.trim()=="")){
             listaTags.each {
             
