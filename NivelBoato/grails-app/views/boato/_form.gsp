@@ -40,7 +40,7 @@
 		<div class="col-md-10">
 			<div class="input-group">
 			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-			<g:textField id="dataFim" class="form-control validate[required]" name="dataFim" placeholder="Data para terminar o boato..."
+			<g:textField id="dataFim" class="form-control" name="dataFim" placeholder="Data para terminar o boato..."
 			 value="${boatoInstance?.dataFim}"/>
 			</div>
 		</div>

@@ -23,7 +23,7 @@ class Boato {
     static constraints = {
         descricao blank: false, nullable: false
         dataInicio blank: false, nullable: false
-        dataFim blank: false, nullable: false
+        dataFim blank: true, nullable: true
         tags blank: true, nullable: true
     }
 
