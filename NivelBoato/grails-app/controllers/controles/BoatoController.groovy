@@ -5,6 +5,7 @@ import entidade.Boato
 import entidade.Tag
 import nivelboato.BoatoService
 import utilitario.ToolBar
+import grails.converters.JSON
 
 
 class BoatoController {
@@ -20,8 +21,13 @@ class BoatoController {
 	}
 
     def list() {
-        render (view: "list")
+        render (view: "list", model:[listBoatoInstance: boatoService.listaBoatos()])
     }
+
+    def teste() {
+        render boatoService.listaBoatos() as JSON
+    }
+
 	def save() {
 		
         String dataInicioStr = params.dataInicio

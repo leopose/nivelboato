@@ -22,7 +22,7 @@
 
 	<div class="row-form">
 		<div class="col-md-2">
-			<strong>Data Inicio:</strong>
+			<strong>Inicio do Boato:</strong>
 		</div>
 		<div class="col-md-10">
 			<div class="input-group">
@@ -35,7 +35,7 @@
 
 	<div class="row-form">
 		<div class="col-md-2">
-			<strong>Data Fim:</strong>
+			<strong>Fim do Boato:</strong>
 		</div>
 		<div class="col-md-10">
 			<div class="input-group">
