@@ -24,10 +24,6 @@ class BoatoController {
         render (view: "list", model:[listBoatoInstance: boatoService.listaBoatos()])
     }
 
-    def teste() {
-        render boatoService.listaBoatos() as JSON
-    }
-
 	def save() {
 		
         String dataInicioStr = params.dataInicio
