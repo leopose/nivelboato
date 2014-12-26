@@ -11,7 +11,7 @@ import java.util.Date
  * @author leonardo
  */
 class Usuario implements Serializable {
-	Integer id
+	Long id
 	String nome
 	String chave
 	String senha
