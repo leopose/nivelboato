@@ -10,7 +10,7 @@ import java.util.Date
  * @author leonardo
  */
 class Boato {
-    Integer id
+    Long id
     String titulo
     String descricao
     Date dataInicio

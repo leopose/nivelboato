@@ -7,7 +7,7 @@ import java.util.Date
  * @author leonardo
  */
 class Categoria {
-    Integer id
+    Long id
     String descricao
     Date dataCadastro = new Date()
     boolean status = true

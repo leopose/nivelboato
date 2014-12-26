@@ -7,7 +7,7 @@ package entidade
  * @author leonardo
  */
 class Perfil {
-    Integer id
+    Long id
     String descricao
     boolean status = true
 

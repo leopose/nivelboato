@@ -3,7 +3,7 @@ package entidade
 import java.util.Date
 
 class Tag {
-    Integer id
+    Long id
     String descricao
     Date dataCadastro  = new Date()
     boolean status = true
