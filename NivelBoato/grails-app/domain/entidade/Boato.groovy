@@ -16,9 +16,12 @@ class Boato {
     Date dataInicio
     Date dataFim
     Date dataPublicado = new Date()
+
+    Long getCurtidas() { PontuacaoBoato.findAllByBoatoAvaliadoAndCurtido(this,true).size() }
 	
     static belongsTo =  [categoria : Categoria, usuarioCadastro: Usuario]
     static hasMany = [tags: Tag]
+    static transients = ['curtidas']
 
     static constraints = {
         descricao blank: false, nullable: false
