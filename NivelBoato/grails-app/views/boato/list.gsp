@@ -28,7 +28,7 @@
                                                     <i class="fa fa-user"></i> ${boato.usuarioCadastro.nome} | <i class="fa fa-clock-o"></i> <g:formatDate format="dd-MM-yyyy" date="${boato.dataInicio}"/>
                                                 </span>
                                                 <p class="text-warning"><i class="fa fa-bookmark"></i> ${boato.categoria.descricao}</p>
-                                                <button type="button" class="btn btn-success btn-xs" title="Confirmar"><i class="fa fa-thumbs-up"></i> 238</button>
+                                                <button type="button" class="btn btn-success btn-xs" title="Confirmar" onClick="chamarAjaxCurtir(${boato.id},${session.user.id})"><i class="fa fa-thumbs-up"></i> <span id="valorCurtidasBoato${boato.id}"> ${boato.curtidas}</span></button>
                                                 <button type="button" class="btn btn-danger btn-xs" title="Negar"><i class="fa fa-thumbs-down"></i> 110</button>
                                             </div>
                                             <g:each in="${boato.tags}" var="tag">
@@ -46,6 +46,8 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript"
+        src="${resource(dir: 'js', file: 'pontuacao.js')}"></script>
         <script type="text/javascript" src="${resource(dir: 'js/plugins/knob/', file: 'jquery.knob.js')}"></script>
     </body>
 </html>

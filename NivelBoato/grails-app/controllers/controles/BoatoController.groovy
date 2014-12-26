@@ -2,7 +2,9 @@ package controles
 
 import entidade.Categoria
 import entidade.Boato
+import entidade.Usuario
 import entidade.Tag
+import entidade.PontuacaoBoato
 import nivelboato.BoatoService
 import utilitario.ToolBar
 import grails.converters.JSON
@@ -83,5 +85,32 @@ class BoatoController {
         }
         
         return titulos
+    }
+
+
+    //TODO Criar um servico para fazer esta funcao
+    def ajaxCurtir() {
+
+        Usuario usuario = session.user
+        Boato boato = Boato.get(params.boato)
+
+        def pontuacoesUsuarioBoato = PontuacaoBoato.findAllByUsuarioAvaliadorAndBoatoAvaliado(usuario,boato)    
+
+        def dados = [:]
+
+        if(!pontuacoesUsuarioBoato){
+            PontuacaoBoato pontuacao = new PontuacaoBoato()
+            pontuacao.usuarioAvaliador = usuario
+            pontuacao.boatoAvaliado = boato
+            pontuacao.curtido = true
+            pontuacao.dataEvento = new Date()
+            pontuacao.save(flush: true)
+        }else{
+            dados.jaCurtiu='true'
+        }
+        dados.curtidas = boato.curtidas;
+        dados.idBoato = params.boato;
+        
+        render dados as JSON
     }
 }
