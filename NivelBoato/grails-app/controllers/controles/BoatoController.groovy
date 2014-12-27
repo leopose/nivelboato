@@ -89,7 +89,7 @@ class BoatoController {
 
 
     //TODO Criar um servico para fazer esta funcao
-    def ajaxCurtir() {
+    def ajaxPontuar() {
 
         Usuario usuario = session.user
         Boato boato = Boato.get(params.boato)
@@ -102,14 +102,15 @@ class BoatoController {
             PontuacaoBoato pontuacao = new PontuacaoBoato()
             pontuacao.usuarioAvaliador = usuario
             pontuacao.boatoAvaliado = boato
-            pontuacao.curtido = true
+            pontuacao.curtido = params.pontuado == "false" ? false : true
             pontuacao.dataEvento = new Date()
             pontuacao.save(flush: true)
         }else{
             dados.jaCurtiu='true'
         }
-        dados.curtidas = boato.curtidas;
-        dados.idBoato = params.boato;
+        
+        dados.pontuado = params.pontuado == "true" ? boato.curtidas : boato.negadas;
+       
         
         render dados as JSON
     }
