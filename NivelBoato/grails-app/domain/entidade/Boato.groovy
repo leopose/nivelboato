@@ -18,6 +18,7 @@ class Boato {
     Date dataPublicado = new Date()
 
     Long getCurtidas() { PontuacaoBoato.findAllByBoatoAvaliadoAndCurtido(this,true).size() }
+    Long getNegadas() { PontuacaoBoato.findAllByBoatoAvaliadoAndCurtido(this,false).size() }
 	
     static belongsTo =  [categoria : Categoria, usuarioCadastro: Usuario]
     static hasMany = [tags: Tag]
