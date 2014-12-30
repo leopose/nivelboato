@@ -14,8 +14,12 @@
                             <div id="cartaoBoatos" class="block-content">
                                 <g:render template="cartaoBoato"/>
                             </div>
-                            <button id="teste">Teste</button>
                         </div>
+                    </div>
+                    <div class="col-md-12">
+                            <center><button id="maisBoatos" class="btn btn-success"><span><i class="fa fa-ellipsis-h"></i> mais</span></button>
+                                
+                            </center>
                     </div>                                                   
                 </div>
             </div>

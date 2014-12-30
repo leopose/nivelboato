@@ -1,5 +1,4 @@
-	var hostPrincipal = window.location.host === "localhost:8080" ? "http://localhost:8080/NivelBoato" : window.location.origin;
-
+	
  	$(document).ready(function(){
 
     	$(".curtir").on("click",function(){

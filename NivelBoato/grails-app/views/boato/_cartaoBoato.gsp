@@ -3,7 +3,7 @@
         <div class="window window-dark">
             <div class="window-block">
                 <div class="knob">
-                    <input type="text" data-fgColor="#8CC152" data-readOnly=true data-bgColor="#FFFFFF" data-min="0" data-max="100" data-width="90" data-height="90" value="95"/>
+                    <input class="knobItem" type="text" data-fgColor="#8CC152" data-readOnly=true data-bgColor="#FFFFFF" data-min="0" data-max="100" data-width="90" data-height="90" value="95"/>
                 </div>
             </div>
             <div class="window-block">
