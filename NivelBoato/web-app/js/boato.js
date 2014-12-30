@@ -1,4 +1,3 @@
-var hostPrincipal = window.location.host === "localhost:8080" ? "http://localhost:8080/NivelBoato" : window.location.origin;
 
 $(document).ready(function(){
 
@@ -10,12 +9,13 @@ $(document).ready(function(){
                 monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']});
 
 
-     $('#teste').on('click',function(){
+     $('#maisBoatos').on('click',function(){
      	$.ajax({
 		    url: hostPrincipal + "/boato/listaCartaoBoato",
 		    success: function(data) {
 		       
-		        $('#cartaoBoatos').append(data);
+		        $('#cartaoBoatos').append(data).hide().fadeIn(1000);
+		        $('.knobItem').knob();
 		    },
 		    error: function(request, status, error) {
 		        alert(error);
@@ -23,7 +23,7 @@ $(document).ready(function(){
 		});
      });
 
-     //$("#formBoato").validationEngine('attach',{promptPosition : "topLeft", binded: false}); 
+     $("#formBoato").validationEngine('attach',{promptPosition : "topLeft", binded: false}); 
 });
 
 
