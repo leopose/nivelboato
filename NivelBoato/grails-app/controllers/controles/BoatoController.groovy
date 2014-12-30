@@ -23,7 +23,11 @@ class BoatoController {
 	}
 
     def list() {
-        render (view: "list", model:[listBoatoInstance: boatoService.listaBoatos()])
+        render (view: "list", model:[listBoatoInstance: boatoService.listaBoatos(session.user)])
+    }
+
+    def listaCartaoBoato() {
+        render (template: "cartaoBoato", model:[listBoatoInstance: boatoService.listaBoatos(session.user)])   
     }
 
 	def save() {
@@ -94,11 +98,9 @@ class BoatoController {
         Usuario usuario = session.user
         Boato boato = Boato.get(params.boato)
 
-        def pontuacoesUsuarioBoato = PontuacaoBoato.findAllByUsuarioAvaliadorAndBoatoAvaliado(usuario,boato)    
-
         def dados = [:]
 
-        if(!pontuacoesUsuarioBoato){
+        if(!boatoService.boatoPontuado(usuario,boato)){
             PontuacaoBoato pontuacao = new PontuacaoBoato()
             pontuacao.usuarioAvaliador = usuario
             pontuacao.boatoAvaliado = boato

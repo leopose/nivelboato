@@ -7,7 +7,8 @@ class UrlMappings {
             }
         }
 
-        "/"(controller:"boato", action:"list")
+        //"/"(controller:"boato", action:"list")
+        "/"(view: "index")
 		"/index"(controller:"boato", action:"list")
 		"/login"(view:"/login")
         "500"(view:'/error')
