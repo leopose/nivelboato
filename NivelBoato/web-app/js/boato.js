@@ -1,3 +1,5 @@
+var hostPrincipal = window.location.host === "localhost:8080" ? "http://localhost:8080/NivelBoato" : window.location.origin;
+
 $(document).ready(function(){
 
 	$("input[id*='data']").datepicker({ minDate: -0, dateFormat: 'dd/mm/yy',
@@ -7,8 +9,21 @@ $(document).ready(function(){
                 monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
                 monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']});
 
-     $("#formBoato").validationEngine('attach',{promptPosition : "topLeft", binded: false}); 
 
+     $('#teste').on('click',function(){
+     	$.ajax({
+		    url: hostPrincipal + "/boato/listaCartaoBoato",
+		    success: function(data) {
+		       
+		        $('#cartaoBoatos').append(data);
+		    },
+		    error: function(request, status, error) {
+		        alert(error);
+		    }
+		});
+     });
+
+     //$("#formBoato").validationEngine('attach',{promptPosition : "topLeft", binded: false}); 
 });
 
 

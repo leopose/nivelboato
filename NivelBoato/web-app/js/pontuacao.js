@@ -1,4 +1,6 @@
-    $(document).ready(function(){
+	var hostPrincipal = window.location.host === "localhost:8080" ? "http://localhost:8080/NivelBoato" : window.location.origin;
+
+ 	$(document).ready(function(){
 
     	$(".curtir").on("click",function(){
     		var elem = $(this);
@@ -26,7 +28,7 @@
     			
     			//Salva no banco a nova curtida
 		    	$.ajax({
-				    url:"/NivelBoato/boato/ajaxPontuar",
+				    url: hostPrincipal + "/boato/ajaxPontuar",
 				    dataType: 'json',
 				    data: {
 				        boato: idBoato,
