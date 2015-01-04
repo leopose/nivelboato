@@ -1,4 +1,4 @@
-
+var paginaBoato = 0;
 $(document).ready(function(){
 
 	$("input[id*='data']").datepicker({ minDate: -0, dateFormat: 'dd/mm/yy',
@@ -10,8 +10,12 @@ $(document).ready(function(){
 
 
      $('#maisBoatos').on('click',function(){
+     	paginaBoato++;
      	$.ajax({
 		    url: hostPrincipal + "/boato/listaCartaoBoato",
+		    data: {
+				    pagina: paginaBoato,
+			},
 		    success: function(data) {
 		       
 		        $('#cartaoBoatos').append(data).hide().fadeIn(1000);
