@@ -12,9 +12,13 @@ class BoatoService {
     	return Categoria.findAllByStatus(true)
     }
 
-    def listaBoatos(def userLogado) {
+    def listaBoatos(def userLogado, def pagina) {
     	def boatos = []
-    	for(item in Boato.findAll()){
+    	
+    	pagina = pagina == 0 ? 0 : Long.parseLong(pagina) * 5
+    	
+    	def resultado = Boato.list(max: 5, offset: pagina, sort: "dataPublicado", order: "desc")
+    	for(item in resultado){
     		def boato = [:]
     		boato.titulo = item.titulo
     		boato.descricao = item.descricao

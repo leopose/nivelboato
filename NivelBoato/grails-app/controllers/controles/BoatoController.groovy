@@ -23,11 +23,11 @@ class BoatoController {
 	}
 
     def list() {
-        render (view: "list", model:[listBoatoInstance: boatoService.listaBoatos(session.user)])
+        render (view: "list", model:[listBoatoInstance: boatoService.listaBoatos(session.user, 0)])
     }
 
     def listaCartaoBoato() {
-        render (template: "cartaoBoato", model:[listBoatoInstance: boatoService.listaBoatos(session.user)])   
+        render (template: "cartaoBoato", model:[listBoatoInstance: boatoService.listaBoatos(session.user, params.pagina)])   
     }
 
 	def save() {
